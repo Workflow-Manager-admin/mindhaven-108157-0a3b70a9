@@ -1,6 +1,34 @@
 import React, { useState } from "react";
 import "./App.css";
 
+// Sample royalty-free Unsplash/Pexels image URLs for feature
+const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"; // Calm, nature
+const ABOUT_IMAGE =
+  "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=350&q=80"; // Gentle portrait
+const DASHBOARD_IMAGE =
+  "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=700&q=80"; // Abstract peace
+const FEATURE_ICONS = {
+  "ADHD Test":
+    "🧠",
+  "Anxiety Test":
+    "😰",
+  "Depression Test":
+    "🌧️",
+  "Stress Test":
+    "💡",
+  "PTSD Screening":
+    "🛡️",
+  "Personality Test":
+    "🗝️",
+  "Emotional Intelligence Test":
+    "🧩",
+  "AI Therapist Chat":
+    "💬",
+  "View Past Test Results":
+    "📈",
+};
+
 // Minimal CSS for custom theme in addition to App.css root
 const colors = {
   primary: "#4CAF50",
@@ -247,30 +275,38 @@ function App() {
             background: colors.secondary,
             paddingTop: 120,
             paddingBottom: 56,
+            animation: "fadein 1s",
             display: "flex",
-            flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            animation: "fadein 1s",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            minHeight: 380,
+            gap: "48px",
           }}
         >
           <div
             className="container"
             style={{
-              maxWidth: "630px",
-              textAlign: "center",
+              maxWidth: "520px",
               margin: "0 auto",
               padding: 0,
+              textAlign: "left",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              zIndex: 2,
             }}
           >
             <h2
               className="subtitle"
               style={{
                 color: colors.primary,
-                fontSize: "1.2rem",
+                fontSize: "1.21rem",
                 fontWeight: 500,
                 marginBottom: 16,
                 letterSpacing: ".04em",
+                textAlign: "left"
               }}
             >
               Caring. Confidential. Free.
@@ -283,9 +319,10 @@ function App() {
                 fontSize: "2.8rem",
                 margin: "16px 0",
                 lineHeight: 1.16,
+                textAlign: "left",
               }}
             >
-              Explore Your Mind, Embrace Your Well-being
+              Explore Your Mind, <br /> Embrace Your Well-being
             </h1>
             <div
               className="description"
@@ -293,7 +330,8 @@ function App() {
                 color: "#333",
                 maxWidth: "500px",
                 fontSize: "1.18rem",
-                margin: "24px auto",
+                margin: "24px 0 0 0",
+                textAlign: "left"
               }}
             >
               MindHaven brings together self-assessment tests and AI-powered guidance for your mental wellness journey — all in a warm, safe, and friendly digital space.
@@ -310,11 +348,43 @@ function App() {
                 boxShadow: "0 4px 32px #00000009",
                 fontWeight: 600,
                 letterSpacing: ".03em",
+                marginTop: 28,
+                width: "fit-content",
               }}
               onClick={() => scrollToId("features")}
             >
               Get Started
             </button>
+          </div>
+          <div
+            aria-hidden="true"
+            style={{
+              flex: "1 1 320px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              minWidth: 260,
+              minHeight: 260,
+              zIndex: 1,
+              marginRight: 30,
+              marginTop: 10,
+              marginBottom: 10,
+              overflow: "visible"
+            }}
+          >
+            <img
+              src={HERO_IMAGE}
+              alt="Relaxing nature, calming atmosphere"
+              style={{
+                width: "320px",
+                maxWidth: "100%",
+                borderRadius: "38px",
+                boxShadow: "0 2px 28px #4caf501a, 0 1.5px 12px #1111",
+                objectFit: "cover",
+                border: "2.2px solid #e3f7ec"
+              }}
+              loading="lazy"
+            />
           </div>
         </section>
 
@@ -329,27 +399,59 @@ function App() {
           <div
             className="container"
             style={{
-              maxWidth: 850,
+              maxWidth: 900,
               margin: "0 auto",
-              color: "#222" ,
+              color: "#222",
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "flex-start",
+              gap: 38,
               textAlign: "left",
+              flexWrap: "wrap",
             }}
           >
-            <h2 style={{
-              color: colors.primary,
-              fontWeight: 600,
-              fontSize: "2rem",
-              marginBottom: 24
-            }}>
-              About InnerEase
-            </h2>
-            <p style={{
-              fontSize: "1.12rem",
-              color: "#222",
-              marginBottom: 12
-            }}>
-              InnerEase is a free online platform dedicated to supporting your mental health and self-discovery. Take scientifically validated assessments for ADHD, anxiety, depression, and more — or talk to our AI Therapist chat for immediate support. No stigma, no pressure: just a place of understanding and growth.
-            </p>
+            <div
+              aria-hidden="true"
+              style={{
+                flex: "0 0 180px",
+                maxWidth: 220,
+                alignSelf: "center",
+                display: "flex",
+                justifyContent: "center",
+                paddingTop: "8px"
+              }}
+            >
+              <img
+                src={ABOUT_IMAGE}
+                alt="Warm welcoming face, representation of mental well-being"
+                style={{
+                  width: "180px",
+                  height: "180px",
+                  objectFit: "cover",
+                  borderRadius: "40px",
+                  boxShadow: "0 1.5px 14px #4caf5013",
+                  border: "1.5px solid #bde5d4"
+                }}
+                loading="lazy"
+              />
+            </div>
+            <div style={{minWidth: 270, flex: 1}}>
+              <h2 style={{
+                color: colors.primary,
+                fontWeight: 600,
+                fontSize: "2rem",
+                marginBottom: 24
+              }}>
+                About InnerEase
+              </h2>
+              <p style={{
+                fontSize: "1.12rem",
+                color: "#222",
+                marginBottom: 12
+              }}>
+                InnerEase is a free online platform dedicated to supporting your mental health and self-discovery. Take scientifically validated assessments for ADHD, anxiety, depression, and more — or talk to our AI Therapist chat for immediate support. No stigma, no pressure: just a place of understanding and growth.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -443,6 +545,7 @@ function App() {
                         fontFamily,
                         animation: "fadein-up .6s",
                         cursor: feat.name === "AI Therapist Chat" ? "pointer" : "default",
+                        alignItems: "flex-start"
                       }}
                       tabIndex={0}
                       aria-label={feat.name}
@@ -454,6 +557,22 @@ function App() {
                           : undefined
                       }
                     >
+                      <span
+                        style={{
+                          fontSize: "2.15rem",
+                          marginBottom: 5,
+                          lineHeight: 1,
+                          display: "inline-block",
+                          filter:
+                            feat.name === "AI Therapist Chat"
+                              ? "drop-shadow(0 1.5px 6px #FF980037)"
+                              : "drop-shadow(0 1.5px 4px #4caf5017)"
+                        }}
+                        aria-label={feat.name + " icon"}
+                        title={feat.name}
+                      >
+                        {FEATURE_ICONS[feat.name]}
+                      </span>
                       <div
                         style={{
                           fontWeight: 600,
@@ -704,20 +823,47 @@ function App() {
             animation: "fadein-up 1.1s",
           }}
         >
-          <h2
+          <div
             style={{
-              color: colors.primary,
-              fontWeight: 700,
-              fontSize: "2.0rem",
-              marginTop: 12,
-              marginBottom: 18,
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 38,
+              flexWrap: "wrap",
+              marginBottom: 12
             }}
           >
-            Welcome to Your Dashboard
-          </h2>
-          <p style={{ marginBottom: 30, color: "#333" }}>
-            Take assessments, chat with our AI Therapist, or view your past test results — all in one calm, private place.
-          </p>
+            <img
+              src={DASHBOARD_IMAGE}
+              alt="Calm abstract, peaceful dashboard"
+              loading="lazy"
+              style={{
+                minWidth: 200,
+                width: 210,
+                height: 130,
+                objectFit: "cover",
+                borderRadius: 27,
+                boxShadow: "0 1.5px 13px #4caf5013",
+                border: "1.5px solid #b9eede"
+              }}
+            />
+            <div style={{flex: 1, minWidth: 160}}>
+              <h2
+                style={{
+                  color: colors.primary,
+                  fontWeight: 700,
+                  fontSize: "2.0rem",
+                  marginTop: 12,
+                  marginBottom: 8,
+                }}
+              >
+                Welcome to Your Dashboard
+              </h2>
+              <p style={{ marginBottom: 2, color: "#333" }}>
+                Take assessments, chat with our AI Therapist, or view your past test results — all in one calm, private place.
+              </p>
+            </div>
+          </div>
           <div
             style={{
               display: "flex",
@@ -740,8 +886,28 @@ function App() {
                       flex: "1 1 235px",
                       boxShadow: "0 2px 16px #0001",
                       marginBottom: 6,
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start"
                     }}
                   >
+                    <span
+                      style={{
+                        fontSize: "2.0rem",
+                        marginBottom: 3,
+                        marginTop: 0,
+                        lineHeight: "1",
+                        display: "inline-block",
+                        filter:
+                          feat.name === "AI Therapist Chat"
+                            ? "drop-shadow(0 1.5px 6px #FF980037)"
+                            : "drop-shadow(0 1.5px 4px #4caf5017)"
+                      }}
+                      aria-label={feat.name + " icon"}
+                      title={feat.name}
+                    >
+                      {FEATURE_ICONS[feat.name]}
+                    </span>
                     <div
                       style={{
                         fontWeight: 600,
@@ -751,6 +917,7 @@ function App() {
                             : colors.primary,
                         fontSize: "1.07rem",
                         marginBottom: 2,
+                        marginTop: 2,
                       }}
                     >
                       {feat.name}
