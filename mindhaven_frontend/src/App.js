@@ -126,107 +126,52 @@ function App() {
   // The sticky header navigation
   function Navbar() {
     return (
-      <nav
-        className="navbar"
-        style={{
-          background: "#fff",
-          color: colors.primary,
-          borderBottom: `1px solid #e0e0e0`,
-          fontFamily,
-          fontWeight: 500,
-          fontSize: "1rem",
-        }}
-      >
-        <div
-          className="container"
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            paddingTop: 8,
-            paddingBottom: 8,
-            maxWidth: 1040,
-            margin: "0 auto",
-          }}
-        >
-          <div
-            className="logo"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              fontWeight: 700,
-              color: colors.primary,
-              fontSize: "1.4rem",
-              letterSpacing: "0.01em",
-              gap: 8,
-            }}
-          >
-            <span
-              style={{
-                background: colors.primary,
-                color: "#fff",
-                borderRadius: "50%",
-                width: 32,
-                height: 32,
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginRight: 8,
-                fontSize: 18,
-                fontWeight: 600,
-                fontFamily,
-              }}
-              aria-label="InnerEase logo"
-            >
+      <nav className="navbar">
+        <div className="container">
+          <div className="logo">
+            <span className="logo-symbol" aria-label="InnerEase logo">
               <svg width={19} height={19} viewBox="0 0 19 19"><circle cx={9.5} cy={9.5} r={9.5} fill={colors.primary}/><circle cx={9.5} cy={9.5} r={5.5} fill={colors.accent} fillOpacity="0.13"/></svg>
             </span>
             InnerEase
           </div>
-          <div
-            style={{
-              display: "flex",
-              gap: 16,
-            }}
-          >
+          <div style={{ display: "flex", gap: 16 }}>
             <button
               className="navlink"
               onClick={() => {
                 setRoute("home");
                 scrollToId("hero");
               }}
+              tabIndex={0}
             >
               Home
             </button>
             <button
               className="navlink"
               onClick={() => scrollToId("about")}
+              tabIndex={0}
             >
               About
             </button>
             <button
               className="navlink"
               onClick={() => scrollToId("vision")}
+              tabIndex={0}
             >
               Our Mission
             </button>
             <button
               className="navlink"
               onClick={() => scrollToId("contact")}
+              tabIndex={0}
             >
               Contact
             </button>
             {!loggedIn && (
               <button
                 className="navlink btn btn-accent"
-                style={{
-                  color: "#fff",
-                  background: colors.accent,
-                  borderRadius: 20,
-                  padding: "5px 20px",
-                  fontWeight: 600,
-                  marginLeft: 8,
-                }}
                 onClick={() => setRoute("login")}
+                tabIndex={0}
+                style={{ marginLeft: 8 }}
               >
                 Login
               </button>
@@ -235,15 +180,15 @@ function App() {
               <button
                 className="navlink"
                 onClick={handleLogout}
+                tabIndex={0}
                 style={{
-                  color: colors.primary,
                   fontWeight: 500,
                   borderRadius: 20,
                   padding: "5px 18px",
                   border: "1px solid #eee",
                   marginLeft: 8,
                   background: "#fff",
-                  transition: "box-shadow 0.2s",
+                  transition: "box-shadow 0.2s"
                 }}
               >
                 Logout
@@ -258,295 +203,82 @@ function App() {
   // The landing/marketing main page
   function HomePage() {
     return (
-      <main
-        style={{
-          background: colors.bg,
-          minHeight: "100vh",
-          fontFamily,
-          color: colors.text,
-          transition: "background 0.2s",
-          lineHeight: 1.7,
-        }}
-      >
-        <section
-          id="hero"
-          className="hero"
-          style={{
-            background: colors.secondary,
-            paddingTop: 120,
-            paddingBottom: 56,
-            animation: "fadein 1s",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            minHeight: 380,
-            gap: "48px",
-          }}
-        >
-          <div
-            className="container"
-            style={{
-              maxWidth: "520px",
-              margin: "0 auto",
-              padding: 0,
-              textAlign: "left",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              zIndex: 2,
-            }}
-          >
-            <h2
-              className="subtitle"
-              style={{
-                color: colors.primary,
-                fontSize: "1.21rem",
-                fontWeight: 500,
-                marginBottom: 16,
-                letterSpacing: ".04em",
-                textAlign: "left"
-              }}
-            >
-              Caring. Confidential. Free.
-            </h2>
-            <h1
-              className="title"
-              style={{
-                fontFamily,
-                fontWeight: 700,
-                fontSize: "2.8rem",
-                margin: "16px 0",
-                lineHeight: 1.16,
-                textAlign: "left",
-              }}
-            >
+      <main>
+        {/* Hero Section */}
+        <section id="hero" className="hero">
+          <div className="container">
+            <h2 className="subtitle">Caring. Confidential. Free.</h2>
+            <h1 className="title">
               Explore Your Mind, <br /> Embrace Your Well-being
             </h1>
-            <div
-              className="description"
-              style={{
-                color: "#333",
-                maxWidth: "500px",
-                fontSize: "1.18rem",
-                margin: "24px 0 0 0",
-                textAlign: "left"
-              }}
-            >
+            <div className="description">
               MindHaven brings together self-assessment tests and AI-powered guidance for your mental wellness journey — all in a warm, safe, and friendly digital space.
             </div>
             <button
               className="btn btn-large"
-              style={{
-                background: colors.primary,
-                color: "#fff",
-                borderRadius: 40,
-                fontFamily,
-                fontSize: "1.12rem",
-                padding: "15px 40px",
-                boxShadow: "0 4px 32px #00000009",
-                fontWeight: 600,
-                letterSpacing: ".03em",
-                marginTop: 28,
-                width: "fit-content",
-              }}
               onClick={() => scrollToId("features")}
+              tabIndex={0}
+              style={{ marginTop: 28, width: "fit-content" }}
             >
               Get Started
             </button>
           </div>
-          <div
-            aria-hidden="true"
-            style={{
-              flex: "1 1 320px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              minWidth: 260,
-              minHeight: 260,
-              zIndex: 1,
-              marginRight: 30,
-              marginTop: 10,
-              marginBottom: 10,
-              overflow: "visible"
-            }}
-          >
+          <div aria-hidden="true" style={{ zIndex: 1, margin: "0 0 10px 0" }}>
             <img
               src={HERO_IMAGE}
               alt="Relaxing nature, calming atmosphere"
-              style={{
-                width: "320px",
-                maxWidth: "100%",
-                borderRadius: "38px",
-                boxShadow: "0 2px 28px #4caf501a, 0 1.5px 12px #1111",
-                objectFit: "cover",
-                border: "2.2px solid #e3f7ec"
-              }}
+              className="hero-img"
               loading="lazy"
             />
           </div>
         </section>
 
-        <section
-          id="about"
-          style={{
-            background: "#ffffff",
-            padding: "60px 0 40px 0",
-            animation: "fadein-up 0.7s",
-          }}
-        >
-          <div
-            className="container"
-            style={{
-              maxWidth: 900,
-              margin: "0 auto",
-              color: "#222",
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "flex-start",
-              gap: 38,
-              textAlign: "left",
-              flexWrap: "wrap",
-            }}
-          >
-            <div
-              aria-hidden="true"
-              style={{
-                flex: "0 0 180px",
-                maxWidth: 220,
-                alignSelf: "center",
-                display: "flex",
-                justifyContent: "center",
-                paddingTop: "8px"
-              }}
-            >
+        {/* About Section */}
+        <section id="about" className="about-section" tabIndex={-1}>
+          <div className="container">
+            <div aria-hidden="true" style={{ display: "flex", justifyContent: "center", alignItems: "center", paddingTop: 8 }}>
               <img
                 src={ABOUT_IMAGE}
                 alt="Warm welcoming face, representation of mental well-being"
-                style={{
-                  width: "180px",
-                  height: "180px",
-                  objectFit: "cover",
-                  borderRadius: "40px",
-                  boxShadow: "0 1.5px 14px #4caf5013",
-                  border: "1.5px solid #bde5d4"
-                }}
+                className="about-img"
                 loading="lazy"
               />
             </div>
-            <div style={{minWidth: 270, flex: 1}}>
-              <h2 style={{
-                color: colors.primary,
-                fontWeight: 600,
-                fontSize: "2rem",
-                marginBottom: 24
-              }}>
-                About InnerEase
-              </h2>
-              <p style={{
-                fontSize: "1.12rem",
-                color: "#222",
-                marginBottom: 12
-              }}>
+            <div className="about-content">
+              <h2 className="about-title">About InnerEase</h2>
+              <p className="about-p">
                 InnerEase is a free online platform dedicated to supporting your mental health and self-discovery. Take scientifically validated assessments for ADHD, anxiety, depression, and more — or talk to our AI Therapist chat for immediate support. No stigma, no pressure: just a place of understanding and growth.
               </p>
             </div>
           </div>
         </section>
 
-        <section
-          id="vision"
-          style={{
-            background: colors.secondary,
-            padding: "46px 0 36px 0",
-            animation: "fadein-up 0.9s",
-          }}
-        >
-          <div
-            className="container"
-            style={{
-              maxWidth: 850,
-              margin: "0 auto",
-              color: "#222",
-              textAlign: "left",
-            }}
-          >
-            <h2 style={{ color: colors.primary, fontWeight: 600, fontSize: "2rem", marginBottom: 17 }}>
-              Vision &amp; Mission
-            </h2>
-            <p style={{ fontSize: "1.08rem", color: "#222", marginBottom: 5 }}>
+        {/* Vision and Mission */}
+        <section id="vision" className="vision-section">
+          <div className="container">
+            <h2 className="vision-title">Vision &amp; Mission</h2>
+            <p className="vision-p">
               <b>Our Vision:</b> A world where every individual can access mental wellness tools and support with dignity, privacy, and ease.
             </p>
-            <p style={{ fontSize: "1.08rem", color: "#222" }}>
+            <p className="vision-p">
               <b>Our Mission:</b> To empower people with science-backed tests, AI-guided support, and practical insights — making mental health resources accessible to everyone, everywhere, for free.
             </p>
           </div>
         </section>
 
-        <section
-          id="features"
-          style={{
-            background: "#fff",
-            padding: "60px 0 52px 0",
-            transition: "background 0.1s",
-            animation: "fadein-up 1.1s",
-          }}
-        >
-          <div
-            className="container"
-            style={{
-              maxWidth: 950,
-              margin: "0 auto",
-              color: "#222",
-              textAlign: "left",
-            }}
-          >
-            <h2 style={{
-              color: colors.primary,
-              fontWeight: 600,
-              fontSize: "2rem",
-              marginBottom: 18,
-              letterSpacing: ".01em"
-            }}>
+        {/* Features Section */}
+        <section id="features" className="features-section">
+          <div className="container">
+            <h2 className="features-title">
               Features &amp; Self-Assessments
             </h2>
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: 30,
-                marginTop: 28,
-                marginBottom: 12,
-              }}
-              aria-label="test and chat feature cards"
-            >
+            <div className="features-grid" aria-label="test and chat feature cards">
               {featureList.map(
                 (feat, i) =>
                   feat.isEnabled && (
                     <div
                       key={feat.name}
                       className="feature-card"
-                      style={{
-                        background: colors.secondary,
-                        borderRadius: 20,
-                        boxShadow: "0 2px 16px #0001",
-                        padding: "28px 26px 23px 26px",
-                        margin: "0 0 4px 0",
-                        minWidth: 220,
-                        maxWidth: 290,
-                        flex: "1 1 240px",
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: 5,
-                        transition: "transform 0.19s, box-shadow 0.19s",
-                        outline: 0,
-                        border: "none",
-                        fontFamily,
-                        animation: "fadein-up .6s",
-                        cursor: feat.name === "AI Therapist Chat" ? "pointer" : "default",
-                        alignItems: "flex-start"
-                      }}
                       tabIndex={0}
                       aria-label={feat.name}
                       onClick={
@@ -556,13 +288,12 @@ function App() {
                             }
                           : undefined
                       }
+                      style={{
+                        cursor: feat.name === "AI Therapist Chat" ? "pointer" : "default"
+                      }}
                     >
                       <span
                         style={{
-                          fontSize: "2.15rem",
-                          marginBottom: 5,
-                          lineHeight: 1,
-                          display: "inline-block",
                           filter:
                             feat.name === "AI Therapist Chat"
                               ? "drop-shadow(0 1.5px 6px #FF980037)"
@@ -574,25 +305,16 @@ function App() {
                         {FEATURE_ICONS[feat.name]}
                       </span>
                       <div
+                        className="feature-name"
                         style={{
-                          fontWeight: 600,
-                          fontSize: "1.08rem",
-                          color:
-                            feat.name === "AI Therapist Chat"
-                              ? colors.accent
-                              : colors.primary,
-                          marginBottom: 3,
+                          color: feat.name === "AI Therapist Chat"
+                            ? "#FF9800"
+                            : "#4CAF50"
                         }}
                       >
                         {feat.name}
                       </div>
-                      <div
-                        style={{
-                          fontSize: "0.97rem",
-                          color: "#444",
-                          marginTop: 2,
-                        }}
-                      >
+                      <div className="feature-desc">
                         {feat.description}
                       </div>
                     </div>
@@ -603,7 +325,7 @@ function App() {
               <span style={{
                 fontWeight: 500,
                 fontSize: "1rem",
-                color: colors.text
+                color: "#222"
               }}>
                 All features are free and private — your results are only stored on your device.
               </span>
@@ -611,32 +333,10 @@ function App() {
           </div>
         </section>
 
-        <section
-          id="contact"
-          style={{
-            background: "#f6f8fa",
-            padding: "56px 0 56px 0",
-            borderTop: `1.5px solid #eee`,
-            animation: "fadein-up 1.3s",
-          }}
-        >
-          <div
-            className="container"
-            style={{
-              maxWidth: 540,
-              margin: "0 auto",
-              color: "#222",
-              textAlign: "left",
-            }}
-          >
-            <h2 style={{
-              color: colors.primary,
-              fontWeight: 600,
-              fontSize: "1.64rem",
-              marginBottom: 15
-            }}>
-              Contact Us
-            </h2>
+        {/* Contact Section */}
+        <section id="contact" className="contact-section">
+          <div className="container">
+            <h2 className="contact-title">Contact Us</h2>
             <form onSubmit={handleContactSubmit} autoComplete="off">
               <input
                 required
@@ -645,7 +345,6 @@ function App() {
                 name="name"
                 placeholder="Your name"
                 value={contact.name}
-                style={contactInputStyle}
                 onChange={e => setContact({ ...contact, name: e.target.value })}
                 disabled={submitted}
               />
@@ -656,7 +355,6 @@ function App() {
                 autoComplete="off"
                 placeholder="Your email"
                 value={contact.email}
-                style={contactInputStyle}
                 onChange={e =>
                   setContact({ ...contact, email: e.target.value })
                 }
@@ -668,7 +366,6 @@ function App() {
                 name="message"
                 placeholder="How can we help?"
                 value={contact.message}
-                style={{ ...contactInputStyle, minHeight: 90, resize: "vertical" }}
                 onChange={e =>
                   setContact({ ...contact, message: e.target.value })
                 }
@@ -676,18 +373,13 @@ function App() {
               />
               <button
                 type="submit"
-                className="btn"
+                className="btn btn-accent"
                 style={{
-                  background: colors.accent,
-                  color: "#fff",
-                  borderRadius: 20,
                   fontWeight: 500,
                   fontSize: "1.11rem",
                   marginTop: 10,
                   minWidth: 110,
-                  cursor: "pointer",
-                  padding: "12px 26px",
-                  boxShadow: "0 1px 14px #e87a410d",
+                  padding: "12px 26px"
                 }}
                 disabled={submitted}
               >
@@ -695,7 +387,7 @@ function App() {
               </button>
             </form>
             {submitted && (
-              <div style={{ color: colors.primary, marginTop: 14 }}>
+              <div style={{ color: "#4CAF50", marginTop: 14 }}>
                 Thank you! We'll be in touch.
               </div>
             )}
@@ -708,17 +400,13 @@ function App() {
   // The minimal login page
   function LoginPage() {
     return (
-      <div
-        style={{
-          minHeight: "100vh",
-          background: colors.bg,
-          fontFamily,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <div style={{
+        minHeight: "100vh",
+        background: "var(--bg)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+      }}>
         <div
           style={{
             background: "#fff",
@@ -728,20 +416,17 @@ function App() {
             minWidth: 310,
             maxWidth: 370,
             marginTop: 56,
-            animation: "fadein 0.6s",
+            animation: "fadein 0.6s"
           }}
         >
-          <h2
-            style={{
-              color: colors.primary,
-              fontFamily,
-              fontWeight: 700,
-              fontSize: "1.35rem",
-              margin: 0,
-              marginBottom: 18,
-              letterSpacing: ".01em",
-            }}
-          >
+          <h2 style={{
+            color: "#4CAF50",
+            fontWeight: 700,
+            fontSize: "1.35rem",
+            margin: 0,
+            marginBottom: 18,
+            letterSpacing: ".01em",
+          }}>
             Sign In to InnerEase
           </h2>
           <form onSubmit={handleLoginSubmit} autoComplete="off">
@@ -750,15 +435,12 @@ function App() {
               type="email"
               name="email"
               placeholder="Email"
-              style={contactInputStyle}
               autoComplete="username"
               value={login.email}
-              onChange={e =>
-                setLogin(current => ({
-                  ...current,
-                  email: e.target.value,
-                }))
-              }
+              onChange={e => setLogin(current => ({
+                ...current,
+                email: e.target.value
+              }))}
               disabled={loggedIn}
             />
             <input
@@ -766,30 +448,21 @@ function App() {
               type="password"
               name="password"
               placeholder="Password"
-              style={contactInputStyle}
               autoComplete="current-password"
               value={login.password}
-              onChange={e =>
-                setLogin(current => ({
-                  ...current,
-                  password: e.target.value,
-                }))
-              }
+              onChange={e => setLogin(current => ({
+                ...current,
+                password: e.target.value
+              }))}
               disabled={loggedIn}
             />
             <button
               className="btn btn-large"
-              style={{
-                background: colors.primary,
-                color: "#fff",
-                borderRadius: 23,
-                fontWeight: 600,
-                letterSpacing: 0.01,
-                fontSize: "1.05rem",
-                marginTop: 18,
-                width: "100%",
-              }}
               type="submit"
+              style={{
+                marginTop: 18,
+                width: "100%"
+              }}
               disabled={loggedIn}
             >
               Log In
@@ -803,101 +476,32 @@ function App() {
   // The minimal dashboard page
   function DashboardPage() {
     return (
-      <div
-        style={{
-          minHeight: "100vh",
-          background: colors.secondary,
-          fontFamily,
-          color: colors.text,
-          paddingTop: 90,
-          transition: "background 0.22s",
-        }}
-      >
-        <div
-          className="container"
-          style={{
-            maxWidth: 1000,
-            margin: "0 auto",
-            padding: "0 18px",
-            paddingBottom: 60,
-            animation: "fadein-up 1.1s",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              gap: 38,
-              flexWrap: "wrap",
-              marginBottom: 12
-            }}
-          >
+      <div className="dashboard-section">
+        <div className="container">
+          <div className="dashboard-header-row">
             <img
               src={DASHBOARD_IMAGE}
               alt="Calm abstract, peaceful dashboard"
+              className="dashboard-img"
               loading="lazy"
-              style={{
-                minWidth: 200,
-                width: 210,
-                height: 130,
-                objectFit: "cover",
-                borderRadius: 27,
-                boxShadow: "0 1.5px 13px #4caf5013",
-                border: "1.5px solid #b9eede"
-              }}
             />
-            <div style={{flex: 1, minWidth: 160}}>
-              <h2
-                style={{
-                  color: colors.primary,
-                  fontWeight: 700,
-                  fontSize: "2.0rem",
-                  marginTop: 12,
-                  marginBottom: 8,
-                }}
-              >
-                Welcome to Your Dashboard
-              </h2>
-              <p style={{ marginBottom: 2, color: "#333" }}>
+            <div className="dashboard-header-content">
+              <h2 className="dashboard-title">Welcome to Your Dashboard</h2>
+              <p className="dashboard-p">
                 Take assessments, chat with our AI Therapist, or view your past test results — all in one calm, private place.
               </p>
             </div>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "28px 24px",
-              marginBottom: 18,
-            }}
-          >
+          <div className="dashboard-cards">
             {featureList.map(
               feat =>
                 feat.isEnabled && (
                   <div
                     key={feat.name}
-                    style={{
-                      background: "#fff",
-                      borderRadius: 18,
-                      padding: "22px 18px 18px 18px",
-                      minWidth: 210,
-                      maxWidth: 285,
-                      flex: "1 1 235px",
-                      boxShadow: "0 2px 16px #0001",
-                      marginBottom: 6,
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "flex-start"
-                    }}
+                    className="dashboard-feature-card"
                   >
                     <span
                       style={{
-                        fontSize: "2.0rem",
-                        marginBottom: 3,
-                        marginTop: 0,
-                        lineHeight: "1",
-                        display: "inline-block",
                         filter:
                           feat.name === "AI Therapist Chat"
                             ? "drop-shadow(0 1.5px 6px #FF980037)"
@@ -909,44 +513,26 @@ function App() {
                       {FEATURE_ICONS[feat.name]}
                     </span>
                     <div
+                      className="dashboard-feature-name"
                       style={{
-                        fontWeight: 600,
-                        color:
-                          feat.name === "AI Therapist Chat"
-                            ? colors.accent
-                            : colors.primary,
-                        fontSize: "1.07rem",
-                        marginBottom: 2,
-                        marginTop: 2,
+                        color: feat.name === "AI Therapist Chat"
+                          ? "#FF9800"
+                          : "#4CAF50"
                       }}
                     >
                       {feat.name}
                     </div>
-                    <div
-                      style={{
-                        fontSize: "0.97rem",
-                        color: "#444",
-                        marginBottom: 4,
-                      }}
-                    >
+                    <div className="dashboard-feature-desc">
                       {feat.description}
                     </div>
                     <button
+                      className="dashboard-card-btn"
                       style={{
                         background:
                           feat.name === "AI Therapist Chat"
-                            ? colors.accent
-                            : colors.primary,
-                        color: "#fff",
-                        borderRadius: 13,
-                        border: "none",
-                        fontWeight: 500,
-                        fontSize: "1.01rem",
-                        padding: "7px 23px",
-                        marginTop: 12,
-                        cursor: "pointer",
-                        boxShadow: "0 1px 12px #4caf5022",
-                        transition: "background 0.07s",
+                            ? "#FF9800"
+                            : "#4CAF50",
+                        color: "#fff"
                       }}
                       tabIndex={0}
                       aria-label={`Open ${feat.name}`}
@@ -963,7 +549,7 @@ function App() {
               fontSize: "1.06rem",
               color: "#666",
               fontWeight: 400,
-              textAlign: "center",
+              textAlign: "center"
             }}
           >
             Your past test results are stored privately in your browser.
@@ -976,53 +562,20 @@ function App() {
   // The footer with links
   function Footer() {
     return (
-      <footer
-        style={{
-          background: "#fff",
-          color: "#444",
-          borderTop: "1.5px solid #eee",
-          fontFamily,
-          fontSize: "1rem",
-          padding: "26px 0 20px 0",
-          marginTop: 0,
-          transition: "background 0.21s",
-        }}
-      >
-        <div
-          className="container"
-          style={{
-            maxWidth: 1040,
-            margin: "0 auto",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-            gap: 20,
-            flexWrap: "wrap",
-          }}
-        >
-          <div style={{ color: colors.primary, fontWeight: 700, letterSpacing: 0.1 }}>
+      <footer>
+        <div className="container">
+          <div style={{ color: "#4CAF50", fontWeight: 700, letterSpacing: 0.1 }}>
             © {new Date().getFullYear()} InnerEase
           </div>
           <div style={{ display: "flex", gap: 22 }}>
             <a
               href="#privacy"
-              style={{
-                textDecoration: "none",
-                color: colors.text,
-                fontWeight: 500,
-              }}
               tabIndex={0}
             >
               Privacy Policy
             </a>
             <a
               href="#terms"
-              style={{
-                textDecoration: "none",
-                color: colors.text,
-                fontWeight: 500,
-              }}
               tabIndex={0}
             >
               Terms
@@ -1032,7 +585,6 @@ function App() {
       </footer>
     );
   }
-
   // Simple input style for re-use
   const contactInputStyle = {
     fontFamily,
