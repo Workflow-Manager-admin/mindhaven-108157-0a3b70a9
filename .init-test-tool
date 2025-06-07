@@ -1,0 +1,4 @@
+{
+    "command": "npm run test",
+    "working_directory": "/home/kavia/workspace/code-generation/mindhaven-108157-0a3b70a9/mindhaven_frontend"
+}
